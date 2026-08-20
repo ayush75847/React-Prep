@@ -1,0 +1,250 @@
+.comment-form-container {
+  width: 430px;
+  margin: 70px auto;
+  padding: 32px;
+  background: #111111;
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+}
+.comment-form-container h4 {
+  margin: 0 0 28px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #f5f5f5;
+}
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.comment-form label {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #bdbdbd;
+}
+.comment-form input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  background: #181818;
+  color: #f5f5f5;
+  border: 1px solid #333333;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+.comment-form input::placeholder {
+  color: #666;
+}
+.comment-form input:hover {
+  border-color: #444;
+}
+.comment-form input:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+}
+.comment-form button {
+  margin-top: 18px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #8b5cf6;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.comment-form button:hover {
+  background: #7c3aed;
+  transform: translateY(-1px);
+}
+.comment-form button:active {
+  transform: translateY(0);
+}
+
+.comment-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  background: #181818;
+  color: #f5f5f5;
+  border: 1px solid #333333;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.comment-form textarea::placeholder {
+  color: #666;
+}
+.comment-form textarea:hover {
+  border-color: #444;
+}
+.comment-form textarea:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+}
+
+/* =========================
+   Comments List
+========================= */
+
+.comments-section {
+  width: 700px;
+  max-width: calc(100% - 40px);
+  margin: 20px auto 80px;
+}
+
+.comments-section h2 {
+  margin-bottom: 22px;
+  color: #f5f5f5;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+/* Individual comment */
+
+.comment-card {
+  padding: 22px;
+  margin-bottom: 16px;
+
+  background: #111111;
+  border: 1px solid #292929;
+  border-radius: 14px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.comment-card:hover {
+  transform: translateY(-2px);
+  border-color: #3a3a3a;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Header */
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.comment-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Avatar */
+
+.comment-avatar {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #8b5cf6;
+  color: white;
+
+  font-size: 17px;
+  font-weight: 600;
+
+  flex-shrink: 0;
+}
+
+/* Username */
+
+.comment-user h3 {
+  margin: 0 0 3px;
+
+  color: #f5f5f5;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.comment-user span {
+  color: #707070;
+  font-size: 12px;
+}
+
+/* Rating */
+
+.comment-rating {
+  padding: 6px 10px;
+
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 7px;
+
+  color: #b89cff;
+  font-size: 13px;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+/* Comment body */
+
+.comment-body {
+  margin-top: 18px;
+  padding-top: 17px;
+
+  border-top: 1px solid #242424;
+}
+
+.comment-body p {
+  margin: 0;
+
+  color: #c8c8c8;
+  font-size: 15px;
+  line-height: 1.7;
+
+  overflow-wrap: anywhere;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  .comments-section {
+    max-width: calc(100% - 24px);
+  }
+
+  .comment-card {
+    padding: 18px;
+  }
+
+  .comment-header {
+    align-items: flex-start;
+  }
+
+  .comment-rating {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  .comment-user h3 {
+    font-size: 15px;
+  }
+
+  .comment-body p {
+    font-size: 14px;
+  }
+}
+
