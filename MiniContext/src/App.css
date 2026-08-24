@@ -1,0 +1,456 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --orange: #ff8c00;
+  --orange-light: #ffad33;
+  --orange-dark: #cc7000;
+
+  --black: #080808;
+  --card: #121212;
+  --card-light: #181818;
+
+  --border: #292929;
+  --text: #f5f5f5;
+  --muted: #8d8d8d;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background:
+    radial-gradient(circle at top left, #251500 0%, transparent 35%),
+    radial-gradient(circle at bottom right, #1c1000 0%, transparent 35%),
+    var(--black);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+
+/* =========================
+   MAIN APP
+========================= */
+
+.app {
+  min-height: 100vh;
+  padding: 60px 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 25px;
+
+  align-items: start;
+}
+
+
+/* =========================
+   COMMON CARD
+========================= */
+
+.card {
+  background: linear-gradient(
+    145deg,
+    #181818,
+    #101010
+  );
+
+  border: 1px solid var(--border);
+  border-radius: 18px;
+
+  padding: 30px;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+
+/* =========================
+   LOGIN CARD
+========================= */
+
+.login-card {
+  position: sticky;
+  top: 30px;
+
+  overflow: hidden;
+}
+
+
+/* Orange top line */
+
+.login-card::before,
+.profile-card::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    var(--orange-dark),
+    var(--orange),
+    var(--orange-light)
+  );
+}
+
+
+/* =========================
+   HEADINGS
+========================= */
+
+.login-card h2,
+.profile-card h2 {
+  color: var(--orange);
+
+  font-size: 25px;
+  font-weight: 700;
+
+  margin-bottom: 8px;
+}
+
+.login-card h2::after,
+.profile-card h2::after {
+  content: "";
+
+  display: block;
+
+  width: 45px;
+  height: 3px;
+
+  margin-top: 10px;
+
+  border-radius: 10px;
+
+  background: var(--orange);
+}
+
+
+/* =========================
+   LOGIN FORM
+========================= */
+
+.login-card form {
+  margin-top: 28px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.login-card label {
+  margin-bottom: 8px;
+  margin-top: 18px;
+
+  color: #d5d5d5;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.login-card input {
+  width: 100%;
+
+  padding: 13px 14px;
+
+  background: #0b0b0b;
+
+  color: white;
+
+  border: 1px solid #333;
+
+  border-radius: 9px;
+
+  outline: none;
+
+  font-size: 15px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.login-card input::placeholder {
+  color: #666;
+}
+
+.login-card input:focus {
+  background: #101010;
+
+  border-color: var(--orange);
+
+  box-shadow:
+    0 0 0 3px rgba(255, 140, 0, 0.12),
+    0 0 20px rgba(255, 140, 0, 0.08);
+}
+
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+
+.login-card button {
+  margin-top: 28px;
+
+  padding: 13px 18px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: linear-gradient(
+    135deg,
+    var(--orange),
+    var(--orange-light)
+  );
+
+  color: #111;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(255, 140, 0, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.login-card button:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.08);
+
+  box-shadow:
+    0 12px 25px rgba(255, 140, 0, 0.3);
+}
+
+.login-card button:active {
+  transform: translateY(0);
+}
+
+
+/* =========================
+   PROFILE / USERS CARD
+========================= */
+
+.profile-card {
+  position: relative;
+
+  min-height: 400px;
+
+  /*
+    IMPORTANT:
+    Don't allow this card to stretch
+    the login card.
+  */
+  align-self: start;
+}
+
+
+/* =========================
+   USER LIST
+========================= */
+
+.profile-card ul {
+  margin-top: 28px;
+
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  /*
+    The list itself handles growth.
+  */
+  max-height: 520px;
+
+  overflow-y: auto;
+
+  padding-right: 6px;
+}
+
+
+/* Scrollbar */
+
+.profile-card ul::-webkit-scrollbar {
+  width: 6px;
+}
+
+.profile-card ul::-webkit-scrollbar-track {
+  background: #0b0b0b;
+  border-radius: 10px;
+}
+
+.profile-card ul::-webkit-scrollbar-thumb {
+  background: #3a260f;
+  border-radius: 10px;
+}
+
+.profile-card ul::-webkit-scrollbar-thumb:hover {
+  background: var(--orange-dark);
+}
+
+
+/* =========================
+   USER ITEM
+========================= */
+
+.profile-card li {
+  position: relative;
+
+  padding: 15px 18px;
+  padding-left: 20px;
+
+  background: linear-gradient(
+    90deg,
+    #171717,
+    #101010
+  );
+
+  border: 1px solid #292929;
+
+  border-radius: 10px;
+
+  color: #eeeeee;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+
+/* Orange indicator */
+
+.profile-card li::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 3px;
+  height: 100%;
+
+  border-radius: 10px 0 0 10px;
+
+  background: var(--orange);
+}
+
+
+/* User hover */
+
+.profile-card li:hover {
+  background: #1c1c1c;
+
+  border-color: #4a3217;
+
+  transform: translateX(3px);
+}
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.profile-card h1 {
+  margin-top: 35px;
+
+  padding: 45px 20px;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 140, 0, 0.07),
+      transparent 60%
+    ),
+    #0d0d0d;
+
+  border: 1px dashed #363636;
+
+  border-radius: 12px;
+
+  color: #777;
+
+  font-size: 18px;
+
+  font-weight: 500;
+}
+
+
+/* =========================
+   PROFILE CARD GLOW
+========================= */
+
+.profile-card {
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    0 0 50px rgba(255, 140, 0, 0.025);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .login-card {
+    position: static;
+  }
+
+  .profile-card {
+    min-height: 350px;
+  }
+}
+
+
+@media (max-width: 500px) {
+
+  .app {
+    padding: 30px 15px;
+  }
+
+  .card {
+    padding: 24px 20px;
+    border-radius: 14px;
+  }
+
+  .login-card h2,
+  .profile-card h2 {
+    font-size: 22px;
+  }
+
+  .profile-card ul {
+    max-height: 400px;
+  }
+}
