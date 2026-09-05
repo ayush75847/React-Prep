@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import { Login as LoginComp } from "../components/index";
 
 function Login() {
   return (
-    <div>Login</div>
-  )
+    <div>
+      <LoginComp />
+    </div>
+  );
 }
 
-export default Login
+export default Login;
